@@ -1,0 +1,5 @@
+.app-header {
+  background-color: var(--desaturated-dark-cyan);
+  background-image: url('/public/assets/images/bg-header-desktop.svg');
+  height: 150px;
+}
