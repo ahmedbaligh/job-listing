@@ -1,0 +1,55 @@
+.job {
+  position: relative;
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0px 5px 15px hsl(180, 29%, 50%, 0.3);
+}
+
+.company-logo {
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: cover;
+}
+
+.job-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.extra-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.extra-info .company-name {
+  margin-right: 0.5rem;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--desaturated-dark-cyan);
+}
+
+.position-title {
+  font-weight: 700;
+  font-size: 1.25em;
+}
+
+.job-info {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  font-size: 0.875em;
+  color: var(--dark-grayish-cyan);
+}
+
+.job-tags {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}

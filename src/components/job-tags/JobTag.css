@@ -1,0 +1,22 @@
+.job-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  background-color: var(--light-grayish-cyan-filter-tablets);
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--desaturated-dark-cyan);
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.job-tag:hover {
+  color: var(--very-dark-grayish-cyan);
+}
+
+.job-tag:active {
+  background-color: var(--desaturated-dark-cyan);
+  color: var(--light-grayish-cyan);
+}
