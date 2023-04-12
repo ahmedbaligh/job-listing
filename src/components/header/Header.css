@@ -3,3 +3,9 @@
   background-image: url('/public/assets/images/bg-header-desktop.svg');
   height: 150px;
 }
+
+@media (max-width: 480px) {
+  .app-header {
+    background-image: url('/public/assets/images/bg-header-mobile.svg');
+  }
+}

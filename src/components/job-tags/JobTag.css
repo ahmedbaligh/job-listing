@@ -5,10 +5,9 @@
   padding: 0.4rem;
   background-color: var(--light-grayish-cyan-filter-tablets);
   border-radius: 0.25rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--desaturated-dark-cyan);
-  cursor: pointer;
   transition: color 0.3s, background-color 0.3s;
 }
 
@@ -19,4 +18,11 @@
 .job-tag:active {
   background-color: var(--desaturated-dark-cyan);
   color: var(--light-grayish-cyan);
+}
+
+@media (max-width: 480px) {
+  .job-tag {
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+  }
 }

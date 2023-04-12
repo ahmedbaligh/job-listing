@@ -16,3 +16,21 @@ main {
 .filters-container {
   position: relative;
 }
+
+@media (max-width: 1199px) {
+  main {
+    padding: 4rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .jobs {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 3rem 1.5rem;
+  }
+}
