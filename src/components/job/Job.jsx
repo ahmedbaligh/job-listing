@@ -3,9 +3,9 @@ import { Badge } from '../badge/Badge';
 
 import './Job.css';
 
-export function Job({ job }) {
+export function Job({ job, onTagClick }) {
   return (
-    <div className="job">
+    <div className={`job ${job.featured ? 'featured' : ''}`}>
       <img className="company-logo" src={`/assets/${job.logo}`} alt={job.company} />
 
       <div className="job-details">
@@ -33,12 +33,16 @@ export function Job({ job }) {
       </div>
 
       <div className="job-tags">
-        <JobTag name={job.role} />
+        <JobTag name={job.role} onTagClick={() => onTagClick('role', job.role)} />
 
-        <JobTag name={job.level} />
+        <JobTag name={job.level} onTagClick={() => onTagClick('level', job.level)} />
 
         {job.languages.map(language => (
-          <JobTag key={`${job.company}-${language}`} name={language} />
+          <JobTag
+            key={`${job.company}-${language}`}
+            name={language}
+            onTagClick={() => onTagClick('languages', language)}
+          />
         ))}
       </div>
     </div>

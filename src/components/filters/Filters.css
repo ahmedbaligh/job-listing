@@ -1,0 +1,24 @@
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  top: -8.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px hsl(180, 29%, 50%, 0.5);
+}
+
+.filters .clear-filters {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--dark-grayish-cyan);
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.filters .clear-filters:hover {
+  color: var(--desaturated-dark-cyan);
+  text-decoration: underline;
+}

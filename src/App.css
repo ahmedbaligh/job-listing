@@ -2,10 +2,17 @@ main {
   min-height: 100vh;
   background-color: var(--light-grayish-cyan);
   padding: 6rem 12rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .jobs {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.filters-container {
+  position: relative;
 }
