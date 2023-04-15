@@ -1,14 +1,18 @@
 import './Filters.css';
 
-export function Filters({ filters, onClearFilters }) {
+export function Filters({ filters, onRemoveFilter, onClearFilters }) {
   return (
     <section className="filters">
-      {filters.role && <span>{filters.role}</span>}
+      {filters.role && <Filter name={filters.role} onRemoveFilter={() => onRemoveFilter('role')} />}
 
-      {filters.level && <span>{filters.level}</span>}
+      {filters.level && <Filter name={filters.level} onRemoveFilter={() => onRemoveFilter('level')} />}
 
       {filters.languages.map(languageFilter => (
-        <span key={languageFilter}>{languageFilter}</span>
+        <Filter
+          key={languageFilter}
+          name={languageFilter}
+          onRemoveFilter={() => onRemoveFilter('languages', languageFilter)}
+        />
       ))}
 
       <button className="clear-filters" onClick={onClearFilters}>
@@ -17,3 +21,13 @@ export function Filters({ filters, onClearFilters }) {
     </section>
   );
 }
+
+const Filter = ({ name, onRemoveFilter }) => (
+  <div className="filter">
+    <span className="filter-name">{name}</span>
+
+    <button title={`Remove ${name} filter`} className="remove-filter" onClick={onRemoveFilter}>
+      <img src="/assets/images/icon-remove.svg" alt="Remove Filter" />
+    </button>
+  </div>
+);

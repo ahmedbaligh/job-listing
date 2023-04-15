@@ -32,6 +32,18 @@ export function App() {
     });
   };
 
+  const onRemoveFilter = (type, filterToRemove) => {
+    if (type === 'role' || type === 'level') {
+      setFilters({ ...filters, [type]: null });
+      return;
+    }
+
+    setFilters({
+      ...filters,
+      languages: filters.languages.filter(filter => filter !== filterToRemove)
+    });
+  };
+
   const onClearFilters = () => {
     setFilters(initialFilters);
   };
@@ -43,7 +55,7 @@ export function App() {
       <main>
         {hasFilters && (
           <div className="filters-container">
-            <Filters filters={filters} onClearFilters={onClearFilters} />
+            <Filters filters={filters} onRemoveFilter={onRemoveFilter} onClearFilters={onClearFilters} />
           </div>
         )}
 

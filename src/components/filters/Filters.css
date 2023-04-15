@@ -22,3 +22,44 @@
   color: var(--desaturated-dark-cyan);
   text-decoration: underline;
 }
+
+.filter {
+  display: flex;
+}
+
+.remove-filter {
+  background: var(--desaturated-dark-cyan);
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  transition: background 0.3s;
+}
+
+.remove-filter:hover {
+  background: var(--very-dark-grayish-cyan);
+}
+
+.remove-filter:active {
+  background: var(--dark-grayish-cyan);
+}
+
+.remove-filter img {
+  align-self: center;
+}
+
+.filter-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  padding-right: 0.5rem;
+  background-color: var(--light-grayish-cyan-filter-tablets);
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--desaturated-dark-cyan);
+  transition: color 0.3s, background-color 0.3s;
+}
