@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Header } from './components/header/Header';
 import { Job } from './components/job/Job';
@@ -10,13 +10,15 @@ import './App.css';
 const initialFilters = {
   role: null,
   level: null,
-  languages: []
+  languages: [],
+  tools: []
 };
 
 export function App() {
   const [filters, setFilters] = useState(initialFilters);
+  const [filteredJobs, setFilteredJobs] = useState(jobs);
 
-  const hasFilters = filters.role || filters.level || filters.languages.length > 0;
+  const hasFilters = filters.role || filters.level || filters.languages.length > 0 || filters.tools.length > 0;
 
   const onAddFilter = (type, filter) => {
     if (type === 'role' || type === 'level') {
@@ -24,11 +26,11 @@ export function App() {
       return;
     }
 
-    if (filters.languages.includes(filter)) return;
+    if (filters[type].includes(filter)) return;
 
     setFilters({
       ...filters,
-      languages: [...filters.languages, filter]
+      [type]: [...filters[type], filter]
     });
   };
 
@@ -40,7 +42,7 @@ export function App() {
 
     setFilters({
       ...filters,
-      languages: filters.languages.filter(filter => filter !== filterToRemove)
+      [type]: filters[type].filter(filter => filter !== filterToRemove)
     });
   };
 
@@ -55,6 +57,8 @@ export function App() {
       if (filters.level !== null && job.level !== filters.level) return false;
 
       if (filters.languages.some(language => !job.languages.includes(language))) return false;
+
+      if (filters.tools.some(tool => !job.tools.includes(tool))) return false;
 
       return true;
     });

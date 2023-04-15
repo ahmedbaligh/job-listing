@@ -44,6 +44,10 @@ export function Job({ job, onTagClick }) {
             onTagClick={() => onTagClick('languages', language)}
           />
         ))}
+
+        {job.tools.map(tool => (
+          <JobTag key={`${job.id}-${tool}`} name={tool} onTagClick={() => onTagClick('tools', tool)} />
+        ))}
       </div>
     </div>
   );

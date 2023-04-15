@@ -15,6 +15,10 @@ export function Filters({ filters, onRemoveFilter, onClearFilters }) {
         />
       ))}
 
+      {filters.tools.map(toolFilter => (
+        <Filter key={toolFilter} name={toolFilter} onRemoveFilter={() => onRemoveFilter('tools', toolFilter)} />
+      ))}
+
       <button className="clear-filters" onClick={onClearFilters}>
         Clear
       </button>
