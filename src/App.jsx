@@ -70,7 +70,7 @@ export function App() {
     <>
       <Header />
 
-      <main>
+      <main className={hasFilters ? 'with-filters' : ''}>
         {hasFilters && (
           <div className="filters-container">
             <Filters filters={filters} onRemoveFilter={onRemoveFilter} onClearFilters={onClearFilters} />

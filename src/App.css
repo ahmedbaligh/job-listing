@@ -1,5 +1,5 @@
 main {
-  min-height: 100vh;
+  flex: 1;
   background-color: var(--light-grayish-cyan);
   padding: 6rem 12rem;
   position: relative;
@@ -24,6 +24,10 @@ main {
 }
 
 @media (max-width: 899px) {
+  main.with-filters {
+    padding-block: 1.5rem;
+  }
+
   .jobs {
     gap: 2.5rem;
   }

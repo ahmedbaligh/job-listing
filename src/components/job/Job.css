@@ -49,6 +49,12 @@
 .position-title {
   font-weight: 700;
   font-size: 1.25em;
+  cursor: default;
+  transition: color 0.3s;
+}
+
+.position-title:hover {
+  color: var(--desaturated-dark-cyan);
 }
 
 .job-info {

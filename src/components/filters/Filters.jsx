@@ -3,21 +3,23 @@ import './Filters.css';
 export function Filters({ filters, onRemoveFilter, onClearFilters }) {
   return (
     <section className="filters">
-      {filters.role && <Filter name={filters.role} onRemoveFilter={() => onRemoveFilter('role')} />}
+      <div className="filters-list">
+        {filters.role && <Filter name={filters.role} onRemoveFilter={() => onRemoveFilter('role')} />}
 
-      {filters.level && <Filter name={filters.level} onRemoveFilter={() => onRemoveFilter('level')} />}
+        {filters.level && <Filter name={filters.level} onRemoveFilter={() => onRemoveFilter('level')} />}
 
-      {filters.languages.map(languageFilter => (
-        <Filter
-          key={languageFilter}
-          name={languageFilter}
-          onRemoveFilter={() => onRemoveFilter('languages', languageFilter)}
-        />
-      ))}
+        {filters.languages.map(languageFilter => (
+          <Filter
+            key={languageFilter}
+            name={languageFilter}
+            onRemoveFilter={() => onRemoveFilter('languages', languageFilter)}
+          />
+        ))}
 
-      {filters.tools.map(toolFilter => (
-        <Filter key={toolFilter} name={toolFilter} onRemoveFilter={() => onRemoveFilter('tools', toolFilter)} />
-      ))}
+        {filters.tools.map(toolFilter => (
+          <Filter key={toolFilter} name={toolFilter} onRemoveFilter={() => onRemoveFilter('tools', toolFilter)} />
+        ))}
+      </div>
 
       <button className="clear-filters" onClick={onClearFilters}>
         Clear
