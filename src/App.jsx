@@ -48,6 +48,20 @@ export function App() {
     setFilters(initialFilters);
   };
 
+  useEffect(() => {
+    const newFilteredJobs = jobs.filter(job => {
+      if (filters.role !== null && job.role !== filters.role) return false;
+
+      if (filters.level !== null && job.level !== filters.level) return false;
+
+      if (filters.languages.some(language => !job.languages.includes(language))) return false;
+
+      return true;
+    });
+
+    setFilteredJobs(newFilteredJobs);
+  }, [filters]);
+
   return (
     <>
       <Header />
@@ -60,7 +74,7 @@ export function App() {
         )}
 
         <section className="jobs">
-          {jobs.map(job => (
+          {filteredJobs.map(job => (
             <Job key={job.id} job={job} onTagClick={onAddFilter} />
           ))}
         </section>
