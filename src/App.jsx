@@ -19,17 +19,16 @@ export function App() {
   const hasFilters = filters.role || filters.level || filters.languages.length > 0;
 
   const onAddFilter = (type, filter) => {
-    if (type === 'languages') {
-      setFilters({
-        ...filters,
-        languages: [...filters.languages, filter]
-      });
+    if (type === 'role' || type === 'level') {
+      setFilters({ ...filters, [type]: filter });
       return;
     }
 
+    if (filters.languages.includes(filter)) return;
+
     setFilters({
       ...filters,
-      [type]: filter
+      languages: [...filters.languages, filter]
     });
   };
 
