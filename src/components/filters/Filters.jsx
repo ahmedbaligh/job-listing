@@ -1,6 +1,21 @@
+import { useSelector, useDispatch } from 'react-redux';
+
+import { removeFilter, clearFilters } from '../../redux/filtersSlice';
+
 import './Filters.css';
 
-export function Filters({ filters, onRemoveFilter, onClearFilters }) {
+export function Filters() {
+  const filters = useSelector(state => state.filters);
+  const dispatch = useDispatch();
+
+  const onRemoveFilter = (type, filter) => {
+    dispatch(removeFilter({ type, filter }));
+  };
+
+  const onClearFilters = () => {
+    dispatch(clearFilters());
+  };
+
   return (
     <section className="filters">
       <div className="filters-list">

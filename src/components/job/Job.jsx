@@ -1,9 +1,18 @@
+import { useDispatch } from 'react-redux';
+
+import { addFilter } from '../../redux/filtersSlice';
+
 import { JobTag } from '../job-tags/JobTag';
 import { Badge } from '../badge/Badge';
-
 import './Job.css';
 
-export function Job({ job, onTagClick }) {
+export function Job({ job }) {
+  const dispatch = useDispatch();
+
+  const onTagClick = (type, filter) => {
+    dispatch(addFilter({ type, filter }));
+  };
+
   return (
     <div className={`job ${job.featured ? 'featured' : ''}`}>
       <img className="company-logo" src={`/assets/${job.logo}`} alt={job.company} />
